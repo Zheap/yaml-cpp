@@ -3,19 +3,24 @@ project "yaml-cpp"
     language "C++"
 
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-    objdir ("bin-int" .. outputdir .. "/%{prj.name}")
+    objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
     files
     {
         "src/**.h",
         "src/**.cpp",
 
-        "include/yaml-cpp/**.h"
+        "include/**.h"
     }
 
     includedirs
     {
         "include"
+    }
+
+    defines
+    {
+        "YAML_CPP_STATIC_DEFINE"
     }
 
     filter "system:windows"
